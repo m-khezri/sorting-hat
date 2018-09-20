@@ -1,62 +1,33 @@
-const toDoInputElem = document.getElementById('ToDoInput');
-const notesInputElem = document.getElementById('notesInput');
-const submitToDoBottomElem = document.getElementById('submitToDoButtom');
-const deleteButton = document.getElementsByClassName('deleteButtom');
 
 
+const sortingHat = [
+    {schoolName: 'Gryffindor', color: '#fab1a0'},
+    {schoolName: 'Hufflepuff', color: '#ffeaa7'},
+    {schoolName: 'Ravenclaw', color: '#00cec9'},
+    {schoolName: 'Slytherin', color: '#74b9ff'},
+];
 
-const printToDom = (stringToPrint, whereToPrint) => {
-    document.getElementById(whereToPrint).innerHTML += stringToPrint;
-    
-    }
-    
-    
-    const buildNewToDoCard = (toDo, notes) => {
-    let domString =  
-    
-    `<div class="form-inline border">
-    <h1>Enter First Year's Name</h1>
-    <div class="form-group mb-2">
-      <label for="students_name" class="sr-only">Students:</label>
-      <input type="text" readonly class="form-control-plaintext" id="students_name" value="students">
+
+const studentNameElem = document.getElementById('students_name');
+const submitBottonElem = document.getElementById('submitButton');
+const deleteButton = document.getElementsByClassName('deleteButton');
+
+
+// --------------- Print Input Form to DOM --------------------------------------------
+
+    const buildNewCard = () => {
+    let domString =
+    document.getElementById("studentCard").innerHTML = 
+    `<div">
+    <h6>Enter First Year's Name:</h3>
+    <div>
+      <label for="students_name"</label>
+      <input type="text"id="students_name" value="students">
     </div>
-    <div class="form-group mx-sm-3 mb-2">
-      <label for="inputText" class="sr-only">Insert students name</label>
-      <input type="text" class="input_text" id="input_text">
-    </div>
-    <button type="submit" class="btn btn-primary mb-2">Sort</button>
+       <button type="submit" id="submitButton" class="btn btn-primary mb-2">Sort</button>
   </div>`;
-    
-        printToDom(domString, 'toDoCards'); 
-        activateDeletes();
-    }
-    
-    submitToDoBottomElem.addEventListener("click", (e) =>  { 
-    e.preventDefault();
-     
-    buildNewToDoCard(toDoInputElem.value,notesInputElem.value);
-    
-    });
+}
 
+submitBottonElem.addEventListener("click", buildNewCard);
 
-
-
-
-
-
-
-
-
-
-
-{/* <div class="form-inline border">
-<div class="form-group mb-2">
-  <label for="students_name" class="sr-only">Students:</label>
-  <input type="text" readonly class="form-control-plaintext" id="students_name" value="students">
-</div>
-<div class="form-group mx-sm-3 mb-2">
-  <label for="inputText" class="sr-only">Insert students name</label>
-  <input type="text" class="input_text" id="input_text">
-</div>
-<button type="submit" class="btn btn-primary mb-2">Sort</button>
-</div> */}
+// ---------------------------------------------------------------------------------------
