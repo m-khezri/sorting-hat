@@ -1,33 +1,74 @@
+const schoolName = ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
 
-
-const sortingHat = [
-    {schoolName: 'Gryffindor', color: '#fab1a0'},
-    {schoolName: 'Hufflepuff', color: '#ffeaa7'},
-    {schoolName: 'Ravenclaw', color: '#00cec9'},
-    {schoolName: 'Slytherin', color: '#74b9ff'},
-];
-
-
-const studentNameElem = document.getElementById('students_name');
 const submitBottonElem = document.getElementById('submitButton');
-const deleteButton = document.getElementsByClassName('deleteButton');
+const studentNameElem = document.getElementById('students_name');
+const sortBottonElem = document.getElementById('sortButton');
+
+const hideForm = () => {
+    document.getElementById("input_form").style.display = 'none';
+}
+hideForm();
+
+const showForm = () => {
+    input_form.style.display = 'block';
+}
+
+submitBottonElem.addEventListener("click", showForm);
 
 
 // --------------- Print Input Form to DOM --------------------------------------------
 
-    const buildNewCard = () => {
-    let domString =
-    document.getElementById("studentCard").innerHTML = 
-    `<div">
-    <h6>Enter First Year's Name:</h3>
-    <div>
-      <label for="students_name"</label>
-      <input type="text"id="students_name" value="students">
-    </div>
-       <button type="submit" id="submitButton" class="btn btn-primary mb-2">Sort</button>
-  </div>`;
+    const buildCard = () => {
+    
+    document.getElementById("studentForm").innerHTML = 
+    `<div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">hello</h5>
+            <p class="card-text">bye</p>
+            <button href="#" class="btn btn-danger deleteButton">Remove</button>
+            </div>
+         </div>`;
 }
 
-submitBottonElem.addEventListener("click", buildNewCard);
+sortBottonElem.addEventListener("click", buildForm);
 
-// ---------------------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const printToDom = (stringToPrint, whereToPrint) => {
+//     document.getElementById(whereToPrint).innerHTML += stringToPrint;
+//     }
+
+
+//     const buildNewCard = (hello, bye) => {
+//         let domString = `<div class="card" style="width: 18rem;">
+//         <div class="card-body">
+//           <h5 class="card-title">hello</h5>
+//         //   <p class="card-text">bye</p>
+//           <button href="#" class="btn btn-danger deleteButton">Remove</button>
+//         </div>
+//         </div>`;
+
+//         printToDom(domString, 'studentCard');
+//     }
+
+
+
+//     sortBottonElem.addEventListener("click", (e) => {
+//         e.preventDefault();
+
+//         buildNewCard(students_name.value);
+//     });
