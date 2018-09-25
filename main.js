@@ -35,14 +35,14 @@ const printToDom = (stringToPrint, whereToPrint) => {
 
         let domString = `<div class="card" style="width: 18rem;">
         <div class="card-body">
-        <h5 class="card-title">${name}</h5>
+          <h5 class="card-title">${name}</h5>
           <h5 class="card-title">${random_school}</h5>
-          <p class="card-text">bye</p>
-          <button href="#" class="btn btn-danger deleteButton">Remove</button>
+          <button class="btn btn-danger rmv_btn">Remove</button>
         </div>
         </div>`;
-
         printToDom(domString, 'studentCard');
+        activateDeletes();
+
     }
 
     const sort_btn_toucher = () => {
@@ -55,3 +55,20 @@ const printToDom = (stringToPrint, whereToPrint) => {
         buildNewCard(std_name);
     });
   }
+
+
+  // ----------- Remove cards 
+
+  const activateDeletes = () => {
+    const deleteButton = document.getElementsByClassName('rmv_btn');
+ 
+    for ( let i=0; i< deleteButton.length; i++){
+      const element = deleteButton[i];
+        element.addEventListener("click", (e) => {
+            const buttonClicked = e.target;
+            const cardToDelete = buttonClicked.parentNode.parentNode;
+            cardToDelete.remove();
+        })
+      }
+}
+
